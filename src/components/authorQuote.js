@@ -21,21 +21,31 @@ class authorQuote extends Component {
       return(
         <div key={quote._id}>
           <div className="row" >
-            <div className="col-4 mx-auto  mt-5">
+            <div className="col-lg-4 col-sm-10 mx-auto  mt-5">
               <h4 className="pl-3">{quote.quoteText}</h4>
             </div>
           </div>
         </div>
       )
     })
-    return (
-      <div className="App">
+    if(this.state.quotes.length === 0){
+      return (
         <div className="text-center">
-          <h3>{this.props.author}</h3>
-        </div>
-        <div>{quotes}</div>
+          <div className="spinner-border" role="status">
+              <span className="sr-only">Loading...</span>
+          </div>
       </div>
-    );
+      )
+    }else{
+      return (
+        <div className="App">
+          <div className="text-center">
+            <h3>{this.props.author}</h3>
+          </div>
+          <div>{quotes}</div>
+        </div>
+      );
+    }
   }
 }
 

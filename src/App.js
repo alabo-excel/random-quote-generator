@@ -12,7 +12,6 @@ class App extends Component {
   state = {
     random: {},
   }
-
   componentDidMount() {
     fetch('https://quote-garden.herokuapp.com/api/v3/quotes/random')
       .then(response => response.json())
@@ -23,21 +22,21 @@ class App extends Component {
 
   render() {
     const  quote = this.state.random;
-    return (
-      <BrowserRouter>
-        <div className="App">
-          <Header />
-          <Route
-            exact
-            path="/"
-            component={() => <RandomQuote quote={quote} />}
-            />
-          <Route path="/quotes"
-            component={() => <AuthorQuote author={quote.quoteAuthor} />}
-            />
-        </div>
-    </BrowserRouter>
-    );
+      return (
+        <BrowserRouter>
+          <div className="App">
+            <Header />
+            <Route
+              exact
+              path="/"
+              component={() => <RandomQuote quote={quote} />}
+              />
+            <Route path="/quotes"
+              component={() => <AuthorQuote author={quote.quoteAuthor} />}
+              />
+          </div>
+      </BrowserRouter>
+      );
   }
 }
 

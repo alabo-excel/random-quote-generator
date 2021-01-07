@@ -8,3 +8,7 @@ a{
   text-decoration: none;
   color: black;
 }
+.spinner-border{
+  width: 3rem;
+  height: 3rem;
+}
